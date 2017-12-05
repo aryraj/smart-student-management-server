@@ -6,4 +6,5 @@ Flask-OpenID==1.2.5
 Flask-SQLAlchemy==2.1
 Flask-WhooshAlchemy==0.56
 Flask-WTF==0.12
+Flask-HTTPAuth==3.2.3
 gunicorn==19.7.1
