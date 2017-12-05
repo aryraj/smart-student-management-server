@@ -21,12 +21,13 @@ tasks = [
 ]
 
 @app.route('/', methods=['GET'])
+@auth.login_required
 def get_tasks():
     return jsonify({'tasks': tasks})
 
 @auth.get_password
 def get_password(username):
-    if username == 'aryan':
+    if username == 'arya':
         return '3003'
     return None
 
