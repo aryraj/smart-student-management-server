@@ -6,13 +6,4 @@ Flask-OpenID==1.2.5
 Flask-SQLAlchemy==2.1
 Flask-WhooshAlchemy==0.56
 Flask-WTF==0.12
-flipflop==1.0
-FontTools==2.4
-funcsigs==1.0.2
-functools32==3.2.3.post2
-future==0.16.0
-futures==3.0.5
-geopy==1.11.0
-gnureadline==6.3.3
-guess-language==0.2
 gunicorn==19.7.1
