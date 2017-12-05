@@ -21,7 +21,6 @@ tasks = [
 ]
 
 @app.route('/', methods=['GET'])
-@auth.login_required
 def get_tasks():
     return jsonify({'tasks': tasks})
 
