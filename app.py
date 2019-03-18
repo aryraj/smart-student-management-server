@@ -24,10 +24,8 @@ usns = ['1DS15EE001', '1DS15EE002', '1DS15EE003', '1DS15EE004', '1DS15EE005', '1
 tasks = [
     {
         'id': 1,
-        'title': u'Buy groceries',
-        'usn' : ['1DS15EE001', '1DS15EE002', '1DS15EE003', '1DS15EE004', '1DS15EE005'],
-        'description': u'Milk, Cheese, Pizza, Fruit, Tylenol',
-        'done': False
+        'title': u'USNs',
+        'usn' : usns,
     }
 ]
 
