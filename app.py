@@ -9,13 +9,8 @@ tasks = [
     {
         'id': 1,
         'title': u'Buy groceries',
+        'usn' : ['1DS15EE001', '1DS15EE002', '1DS15EE003', '1DS15EE004', '1DS15EE005'],
         'description': u'Milk, Cheese, Pizza, Fruit, Tylenol',
-        'done': False
-    },
-    {
-        'id': 2,
-        'title': u'Learn Python',
-        'description': u'Need to find a good Python tutorial on the web',
         'done': False
     }
 ]
@@ -27,8 +22,8 @@ def get_tasks():
 
 @auth.get_password
 def get_password(username):
-    if username == 'arya':
-        return '3003'
+    if username == 'admin':
+        return 'admin'
     return None
 
 @auth.error_handler
