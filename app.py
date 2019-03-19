@@ -140,7 +140,7 @@ tasks = [
     }
 ]
 
-@app.route('/', methods=['GET'])
+@app.route('/helloesp', methods=['GET'])
 #@auth.login_required
 def get_tasks():
     #return jsonify({'student-details': details})
@@ -158,4 +158,4 @@ def unauthorized():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8090)
+    app.run()
