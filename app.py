@@ -21,18 +21,34 @@ usns = ['1DS15EE001', '1DS15EE002', '1DS15EE003', '1DS15EE004', '1DS15EE005', '1
         '1DS15EE093', '1DS15EE094', '1DS15EE095', '1DS15EE096', '1DS15EE097', '1DS15EE098', '1DS15EE099',
         '1DS15EE100', '1DS15EE101'
         ]
+
+details = [
+    {
+        usns[0]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+
+        usns[1]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        }
+    }
+]
 tasks = [
     {
         'id': 1,
         'title': u'USNs',
-        'usn' : usns,
+        'usn': usns,
     }
 ]
 
 @app.route('/', methods=['GET'])
 @auth.login_required
 def get_tasks():
-    return jsonify({'tasks': tasks})
+    return jsonify({'student-details': details})
 
 @auth.get_password
 def get_password(username):
