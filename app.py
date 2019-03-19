@@ -143,7 +143,8 @@ tasks = [
 @app.route('/', methods=['GET'])
 #@auth.login_required
 def get_tasks():
-    return jsonify({'student-details': details})
+    #return jsonify({'student-details': details})
+    return "Hello ESP8266, from flask!"
 
 '''@auth.get_password
 def get_password(username):
@@ -157,4 +158,4 @@ def unauthorized():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port=8090)
