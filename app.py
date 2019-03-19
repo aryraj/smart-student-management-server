@@ -34,7 +34,102 @@ details = [
             'timestamp': '',
             'present': '',
             'marks': ''
-        }
+        },
+        usns[2]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[3]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[4]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[5]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[6]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[7]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[8]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[9]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[10]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[11]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[12]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[13]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[14]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[15]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[16]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[17]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[18]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[19]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
+        usns[20]: {
+            'timestamp': '',
+            'present': '',
+            'marks': ''
+        },
     }
 ]
 tasks = [
