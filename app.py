@@ -141,11 +141,11 @@ tasks = [
 ]
 
 @app.route('/', methods=['GET'])
-@auth.login_required
+#@auth.login_required
 def get_tasks():
     return jsonify({'student-details': details})
 
-@auth.get_password
+'''@auth.get_password
 def get_password(username):
     if username == 'admin':
         return 'admin'
@@ -153,7 +153,7 @@ def get_password(username):
 
 @auth.error_handler
 def unauthorized():
-    return make_response(jsonify({'error': 'Unauthorized access'}), 401)
+    return make_response(jsonify({'error': 'Unauthorized access'}), 401) '''
 
 
 if __name__ == "__main__":
