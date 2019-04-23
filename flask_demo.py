@@ -69,6 +69,16 @@ subjects = [
         }
     ]
 
+{"1DS15EE101":
+     {"Logic Design":
+          {
+              "24-04-2019":
+               {
+                   "present":"Y"
+               },
+           "marks":100}
+      }
+ }
 
 details = []
 
@@ -79,7 +89,7 @@ details = []
 
 @app.route('/home', methods=['GET'])
 def home():
-    return render_template('home.html')
+    return 'Hello!'
 
 @app.route('/sub')
 def save_sub():
@@ -95,8 +105,10 @@ def save_sub():
     date = str(now.day) + '-' + str(now.month) + '-' + str(now.year)
     usn_details = {
             subject: {
-                date: present,
-                'marks': marks
+                date: {
+                    "present": present
+                },
+                "marks": marks
             }
     }
 
@@ -114,11 +126,13 @@ def save_sub():
         for j in range(len(details)):
             if not found:
                 details.append(detail)
+                found = False
+                break
     else:
         details.append(detail)
 
 
-
+    print details
     db.child("details").set(details)
     return jsonify({'details': details})
 
