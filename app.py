@@ -1,5 +1,8 @@
 from flask import Flask, jsonify, make_response
 from flask_httpauth import HTTPBasicAuth
+import datetime
+
+now = datetime.datetime.now()
 
 auth = HTTPBasicAuth()
 
@@ -22,12 +25,15 @@ usns = ['1DS15EE001', '1DS15EE002', '1DS15EE003', '1DS15EE004', '1DS15EE005', '1
         '1DS15EE100', '1DS15EE101'
         ]
 
+
+
 details = [
     {
         usns[0]: {
-            'timestamp': '',
-            'present': '',
-            'marks': ''
+            'sub1': {
+                'todays-date': 'Y/N',
+                'marks': '100'
+            }
         },
 
         usns[1]: {
@@ -132,7 +138,7 @@ details = [
         },
     }
 ]
-tasks = [
+usn_list = [
     {
         'id': 1,
         'title': u'USNs',
@@ -140,11 +146,15 @@ tasks = [
     }
 ]
 
-@app.route('/helloesp', methods=['GET'])
+@app.route('/details', methods=['GET'])
 #@auth.login_required
 def get_tasks():
-    #return jsonify({'student-details': details})
-    return "Hello ESP8266, from flask!"
+    return jsonify({'student-details': details})
+    #return "Hello ESP8266, from flask!"
+
+@app.route('/usns', methods=['GET'])
+def get_usn():
+    return jsonify({'usns': usn_list })
 
 '''@auth.get_password
 def get_password(username):
@@ -158,4 +168,4 @@ def unauthorized():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0")
