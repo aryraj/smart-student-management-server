@@ -225,7 +225,8 @@ def get_att():
     print _abs
 
 
-    return render_template('att.html', present=_pre, absent=_abs, usn=usn, sub=subject)
+    return render_template('att.html', present=_pre, absent=_abs, usn=usn, sub=subject,
+                           yes=y_count, no=n_count, total=total)
 
 
 
@@ -240,7 +241,7 @@ def save_sub():
     for sub in subjects:
         if sub['id'] == sub_code:
             subject = sub['name']
-    date = str(now.day) + '-' + str(now.month) + '-' + str(now.year)
+    date = str(now.day) + '-' + str(now.month) + '-' + str(now.year) + ':' + str(now.hour)
     usn_details = {
             subject: {
                 date: present,

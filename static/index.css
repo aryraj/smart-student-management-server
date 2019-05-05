@@ -72,8 +72,7 @@ h2{
   margin-left: 230px;
   cursor: pointer;
 }
-
-#sub-name{
+#sub-name-div{
   border-color: #0288d1;
   background-color: white;
   height: 120px;
@@ -85,6 +84,20 @@ h2{
   padding: 5px;
   margin-left: 800px;
   border-radius: 10px;
+}
+#sub-name{
+  background-color: white;
+  color: #0288D1;
+  font-size: 34px;
+  margin-left: 800px;
+}
+
+#total-class{
+  color: #0288D1;
+  font-size: 24px;
+  padding: 5px;
+  margin-left: 800px;
+  color: green;
 }
 
 #export-excel{

@@ -134,9 +134,12 @@
 
         </script>
 
-        <div id='sub-name' class='sub-name'>
-            <p>{{sub}}</p>
+        <div class='sub-name-div'>
+            <p  id='sub-name'>{{sub}}</p>
+            <p id='total-class'>Total classes: {{total}}<br/><br/> Present:{{yes}} &nbsp; &nbsp; &nbsp;Absent: {{no}}</p>
         </div>
+
+        
 
       <div id="chart" class="chart-container" style="position:absolute; height:13vh; width:21vw; padding-left: 150px; padding-top: 50px; margin-left:780px; margin-top:0px; margin-bottom:10px;">
       <canvas id="myChart" width="100" height="100"></canvas>
@@ -163,8 +166,8 @@
             var selectedUSN = document.getElementById('slct');
             usn = selectedUSN.options[selectedUSN.selectedIndex].text;
 
-            //window.location.replace('http://0.0.0.0:5000/att?usn='+usn+'&sub='+sub);
-            window.location.replace('http://35.200.163.111/att?usn='+usn+'&sub='+sub);
+            window.location.replace('http://0.0.0.0:5000/att?usn='+usn+'&sub='+sub);
+            //window.location.replace('http://35.200.163.111/att?usn='+usn+'&sub='+sub);
 
             console.log(usn);
            
@@ -182,8 +185,8 @@
         }
 
           function exportToExcel() {
-            //window.open('http://0.0.0.0:5000/sheet')
-            window.open('http://35.200.163.111/sheet')
+            window.open('http://0.0.0.0:5000/sheet')
+            //window.open('http://35.200.163.111/sheet')
           }
       
           var ctx = document.getElementById('myChart');
