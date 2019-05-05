@@ -163,7 +163,8 @@
             var selectedUSN = document.getElementById('slct');
             usn = selectedUSN.options[selectedUSN.selectedIndex].text;
 
-            window.location.replace('http://0.0.0.0:80/att?usn='+usn+'&sub='+sub);
+            //window.location.replace('http://0.0.0.0:5000/att?usn='+usn+'&sub='+sub);
+            window.location.replace('http://35.200.163.111/att?usn='+usn+'&sub='+sub);
 
             console.log(usn);
            
@@ -181,7 +182,8 @@
         }
 
           function exportToExcel() {
-            window.open('http://0.0.0.0:80/sheet')
+            //window.open('http://0.0.0.0:5000/sheet')
+            window.open('http://35.200.163.111/sheet')
           }
       
           var ctx = document.getElementById('myChart');
