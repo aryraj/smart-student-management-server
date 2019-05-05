@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Noto+Sans+SC|Oxygen');
+*{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body{
+  margin: 0px;
+}
+#nav{
+  width: 100%;
+  height: 50px;
+  background-color:#0288D1;
+  color:white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 25px;
+  margin-top:0px;
+  position: sticky;
+  padding-top: 7px;
+  padding-bottom:10px;
+
+}
+
+
+
+ul li{
+  display: inline;
+  margin-left: 160px;
+
+}
+
+h2{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 45px;
+  color: #0288D1;
+  display: inline;
+  margin-left: 20px;
+  margin-top: -140px;
+}
+
+.block-left{
+  margin-top: 1px;
+  margin-left: 10px;
+  float: left;
+  width:660px;
+  height: 700px;
+}
+
+#slct{
+    font-size: 20px;
+    height: 50px;
+    width: 400px;
+    border-color:#0288D1;
+    border-width: 2px;
+    cursor: pointer;
+  	background-color: white;
+  	border-radius: 5px;
+    width: 660px;
+    color:#0288D1;
+
+}
+
+#sub1{
+  height: 60px;
+  width: 200px;
+  border-color:#0288D1;
+  border-radius: 10px;
+  background-color: White;
+  border-style: solid;
+  color:#0288D1;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: 230px;
+  cursor: pointer;
+}
+
+#sub-name{
+  border-color: #0288d1;
+  background-color: white;
+  height: 120px;
+  width: 600px;
+  border-style: solid;
+  border-width: 2px;
+  color: #0288D1;
+  font-size: 44px;
+  padding: 5px;
+  margin-left: 800px;
+  border-radius: 10px;
+}
+
+#export-excel{
+  height: 60px;
+  width: 200px;
+  border-color:#0288D1;
+  border-radius: 10px;
+  background-color: White;
+  border-style: solid;
+  color:#0288D1;
+  font-size: 20px;
+  margin-top: 40px;
+  margin-left: 70px;
+  cursor: pointer;
+}
+
+#data{
+  font-size: 24px;
+  color: #0288D1;
+  margin-top: 20px;
+  margin-left: 220px;
+  height: 340px;
+  overflow: scroll;
+  width: 670px;
+  overflow-x:hidden;
+  display: none;
+  cursor: pointer;
+}
+
+
+.eee{
+  margin-top:-10px;
+  font-size: 20px;
+  color: #0288D1;
+  margin-left: 10%;
+}
+
+#img1{
+  margin-left:15%;
+  margin-top: 10px;
+  float: left;
+  height: 3px;
+  width: 3px;
+  margin-right: 18%;
+}
+
+#top-div{
+  top: 10;
+  display: inline;
+  background-color:white;
+  width: 100%;
+  height:200px;
+}
+
+.main{
+  margin-top: 230px;
+}
+
+#title{
+  margin-left: 29%;
+  margin-top: 5%;
+  float: left;
+}

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Aryan Project</title>
+    <link rel="stylesheet" href="../static/index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+  </head>
+  <body>
+    <div id="nav">
+      <ul>
+        <li>Aryan Raj</li>
+        <li>Raunak Kr Gupta</li>
+        <li>Hitesh Shanker</li>
+        <li>Preet D Sanghvi</li>
+      </ul>
+    </div>
+    <div id="top-div">
+      <div id="img1">
+        <img src="../static/logo.jpg" alt="">
+      </div>
+      <div id="title">
+        <h2>Student Attendance Management System</h2>
+        <div class="eee">
+          <p>Department of Electrical and Electronics Engineering,<br> &nbsp; &nbsp; &nbsp; &nbsp; Dayananda Sagar College of Engineering. </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="block-left">
+        <div class="select">
+          <select name="slct" id="slct">
+            <option selected disabled>Choose an option</option>
+
+            <option value="1">1DS15EE1</option>
+            <option value="2">1DS15EE2</option>
+            <option value="3">1DS15EE3</option>
+            <option value="4">1DS15EE4</option>
+            <option value="6">1DS15EE6</option>
+            <option value="7">1DS15EE7</option>
+            <option value="8">1DS15EE8</option>
+            <option value="9">1DS15EE9</option>
+            <option value="10">1DS15EE10</option>
+            <option value="11">1DS15EE11</option>
+            <option value="12">1DS15EE12</option>
+            <option value="13">1DS15EE13</option>
+            <option value="14">1DS15EE14</option>
+            <option value="15">1DS15EE15</option>
+            <option value="16">1DS15EE16</option>
+            <option value="17">1DS15EE17</option>
+            <option value="18">1DS15EE18</option>
+            <option value="19">1DS15EE19</option>
+            <option value="20">1DS15EE20</option>
+            <option value="21">1DS15EE21</option>
+            <option value="22">1DS15EE22</option>
+            <option value="23">1DS15EE23</option>
+            <option value="25">1DS15EE24</option>
+            <option value="26">1DS15EE26</option>
+            <option value="27">1DS15EE27</option>
+            <option value="28">1DS15EE28</option>
+            <option value="29">1DS15EE29</option>
+            <option value="30">1DS15EE30</option>
+            <option value="31">1DS15EE31</option>
+            <option value="32">1DS15EE32</option>
+            <option value="33">1DS15EE33</option>
+            <option value="34">1DS15EE34</option>
+            <option value="35">1DS15EE35</option>
+            <option value="36">1DS15EE36</option>
+            <option value="37">1DS15EE37</option>
+            <option value="38">1DS15EE38</option>
+            <option value="39">1DS15EE39</option>
+            <option value="40">1DS15EE40</option>
+            <option value="41">1DS15EE41</option>
+            <option value="42">1DS15EE42</option>
+            <option value="43">1DS15EE43</option>
+            <option value="44">1DS15EE44</option>
+            <option value="45">1DS15EE45</option>
+            <option value="46">1DS15EE46</option>
+            <option value="47">1DS15EE47</option>
+            <option value="48">1DS15EE48</option>
+            <option value="50">1DS15EE50</option>
+            <option value="51">1DS15EE51</option>
+            <option value="52">1DS15EE52</option>
+            <option value="53">1DS15EE53</option>
+            <option value="54">1DS15EE54</option>
+            <option value="55">1DS15EE55</option>
+            <option value="56">1DS15EE56</option>
+            <option value="57">1DS15EE58</option>
+            <option value="59">1DS15EE59</option>
+            <option value="60">1DS15EE60</option>
+            <option value="61">1DS15EE61</option>
+            <option value="62">1DS15EE62</option>
+            <option value="63">1DS15EE63</option>
+            <option value="64">1DS15EE64</option>
+            <option value="65">1DS15EE65</option>
+            <option value="66">1DS15EE66</option>
+            <option value="67">1DS15EE67</option>
+            <option value="68">1DS15EE68</option>
+            <option value="69">1DS15EE69</option>
+            <option value="70">1DS15EE70</option>
+          </select>
+        </div>
+        <button type="submit" id="sub1"onclick="showSubjects()">See Attendance</button>
+        
+        <div id="data">
+          <p id="na" onclick="subClick(this.id)">Network Analysis</p>
+          <p id ="ld" onclick="subClick(this.id)">Logic Design</p>
+          <p id ="aec" onclick="subClick(this.id)">Analog Electronic Circuits</p>
+          <p id ="mat" onclick="subClick(this.id)">Mathematics</p>
+          <p id ="em" onclick="subClick(this.id)">Electrical Machines</p>
+          <p id ="ei" onclick="subClick(this.id)">Electrical Instruments</p>
+          <p id ="aeclab" onclick="subClick(this.id)">AEC Lab</p>
+          <p id ="ldlab" onclick="subClick(this.id)">LD Lab</p>
+        </div>
+      </div>
+      <script>
+
+        let usn;
+
+          function showSubjects() {
+            var x = document.getElementById("data");
+            
+            x.style.display = "block";
+
+          
+          }
+
+          
+
+        </script>
+
+      <div id="chart" class="chart-container" style="position:absolute; height:13vh; width:21vw; padding-left: 150px; padding-top: 50px; margin-left:780px; margin-top:0px; margin-bottom:10px;">
+      <canvas id="myChart" width="100" height="100"></canvas>
+      <div id="export-excel-div" class="export-excel">
+        <button id="export-excel" onclick="exportToExcel()">Export to Excel</button>
+      </div>
+      <!--<div id="graph">-->
+      <script>
+
+          let chart = document.getElementById("myChart");
+          chart.style.display = "none";
+
+          let exportExcel = document.getElementById("export-excel-div");
+          exportExcel.style.display = "none";
+
+          function subClick(id) {
+            var x = document.getElementById(id);
+
+            var sub = x.innerHTML;
+
+            
+
+            //chart.style.display = "block";
+            //exportExcel.style.display = "block";
+            
+            var selectedUSN = document.getElementById('slct');
+            usn = selectedUSN.options[selectedUSN.selectedIndex].text;
+
+            window.open('http://0.0.0.0:80/att?usn='+usn+'&sub='+sub);
+
+            console.log(usn);
+           
+            
+          }
+
+          function exportToExcel() {
+            window.open('http://0.0.0.0:80/sheet')
+          }
+      
+          var ctx = document.getElementById('myChart');
+          var myChart = new Chart(ctx, {
+          type: 'pie',
+          data: {
+              labels: ['%present', '%absent'],
+              datasets: [{
+                      label: '# of Votes',
+                      data: [60,40],
+                      backgroundColor: [
+                      'rgb(124,252,0)',
+                      'rgb(255,0,0)'
+
+                  ],
+                  borderColor: [
+                      'rgba(2,136,209, 1)',
+                      'rgba(0, 0, 0, 1)'
+                  ],
+                  borderWidth: 1
+              }]
+          }
+          });
+      
+      </script>
+      <!--</div>-->
+      </div>
+    </div>
+
+  </body>
+</html>

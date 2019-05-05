@@ -1,6 +1,8 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, send_file
 import datetime
 import pyrebase
+import xlsxwriter
+
 
 now = datetime.datetime.now()
 
@@ -17,7 +19,9 @@ firebase = pyrebase.initialize_app(config)
 
 db = firebase.database()
 
-usns = ['1DS15EE001', '1DS15EE002', '1DS15EE003', '1DS15EE004', '1DS15EE005', '1DS15EE006', '1DS15EE007',
+
+usns = [
+        '1DS15EE001', '1DS15EE002', '1DS15EE003', '1DS15EE004', '1DS15EE005', '1DS15EE006', '1DS15EE007',
         '1DS15EE008', '1DS15EE009', '1DS15EE010', '1DS15EE011', '1DS15EE012', '1DS15EE013', '1DS15EE014',
         '1DS15EE015', '1DS15EE016', '1DS15EE017', '1DS15EE018', '1DS15EE019', '1DS15EE020', '1DS15EE021',
         '1DS15EE022', '1DS15EE023', '1DS15EE024', '1DS15EE025', '1DS15EE026', '1DS15EE027', '1DS15EE028',
@@ -33,6 +37,12 @@ usns = ['1DS15EE001', '1DS15EE002', '1DS15EE003', '1DS15EE004', '1DS15EE005', '1
         '1DS15EE093', '1DS15EE094', '1DS15EE095', '1DS15EE096', '1DS15EE097', '1DS15EE098', '1DS15EE099',
         '1DS15EE100', '1DS15EE101'
         ]
+
+usn = []
+sub_name = []
+date = []
+present = []
+marks = []
 
 subjects = [
         {
@@ -69,29 +79,157 @@ subjects = [
         }
     ]
 
-{"1DS15EE101":
-     {"Logic Design":
-          {
-              "24-04-2019":
-               {
-                   "present":"Y"
-               },
-           "marks":100}
-      }
- }
-
 details = []
+
+data = []
+obj = {}
 
 #firebase = firebase.FirebaseApplication('https://student-management-89004.firebaseio.com/', None)
 #result = firebase.get('/details', None)
 
 
+def fetch_data():
+    received = db.child("details").get()
+    for rec_data in received.each():
+        key_main = rec_data.key()
+        val_main = rec_data.val()
+
+
+        for _k, _v in val_main.iteritems():
+            if _k in usn:
+                pass
+            else:
+                usn.append(_k)
+
+
+            for _k, _v in _v.iteritems():
+                sub_name.append(_k)
+
+                for _k, _v in _v.iteritems():
+                    if _k == 'marks':
+                        marks.append(_v)
+                    else:
+                        date.append(_k)
+                        present.append(_v)
+
+
+
+def fetch_attendance(usn, sub):
+    rec = db.child("details").get()
+    global present
+    present = []
+    for _data in rec.each():
+        _key = _data.key()
+        _val = _data.val()
+
+
+        for _k, _v in _val.iteritems():
+            if _k == usn:
+                for _k, _v in _v.iteritems():
+                    if _k == sub:
+                        for _k, _v in _v.iteritems():
+                            if _k == "marks":
+                                pass
+                            else:
+                                present.append(_v)
+
+
+
+
+
+@app.route('/test')
+def test():
+    fetch_attendance("1DS15EE3", "Logic Design")
+    y_count = 0
+    n_count = 0
+
+    print '----------'
+    for u in usn:
+        print 'usn'
+        print u
+
+    print '----------'
+    for s in sub_name:
+        print 'sub'
+        print s
+
+    print '----------'
+    for d in date:
+        print 'date'
+        print d
+
+    print '----------'
+    for p in present:
+        print 'present'
+        if p['present'] == 'Y':
+            y_count += 1
+        elif p['present'] == 'N':
+            n_count += 1
+    print y_count
+    print n_count
+
+    print '----------'
+    for m in marks:
+        print 'marks'
+        print m
+    print '----------'
+    return "processed"
+
 
 @app.route('/home', methods=['GET'])
 def home():
-    return 'Hello!'
+    return render_template('index.html')
 
-@app.route('/sub')
+@app.route('/sheet')
+def export():
+
+    workbook = xlsxwriter.Workbook('name.xlsx')
+
+    worksheet = workbook.add_worksheet()
+    worksheet.write('A1', 'Sl. No.')
+    worksheet.write('B1', 'USN')
+    worksheet.write('C1', 'Sub1')
+    worksheet.write('D1', 'Sub2')
+
+    workbook.close()
+
+
+    return send_file('name.xlsx')
+
+@app.route('/att')
+def get_att():
+    usn = request.args.get('usn')
+    subject = request.args.get('sub')
+    fetch_attendance(usn, subject)
+    y_count = 0
+    n_count = 0
+    for p in present:
+        print 'present'
+        if p['present'] == 'Y':
+            y_count += 1
+        elif p['present'] == 'N':
+            n_count += 1
+    print y_count
+    print n_count
+
+    total = y_count+n_count
+    try:
+        _pre = (y_count/float(total)) * 100
+        _abs = (n_count/float(total)) * 100
+    except Exception as e:
+        print "Not Found in database"
+        _pre = 0
+        _abs = 0
+
+    print _pre
+    print _abs
+
+
+    return render_template('att.html', present=_pre, absent=_abs, usn=usn, sub=subject)
+
+
+
+@app.route('/sub', methods=['POST', 'GET'])
 def save_sub():
     found = False
     sub_code = int(request.args.get('code'))
@@ -105,9 +243,7 @@ def save_sub():
     date = str(now.day) + '-' + str(now.month) + '-' + str(now.year)
     usn_details = {
             subject: {
-                date: {
-                    "present": present
-                },
+                date: present,
                 "marks": marks
             }
     }
@@ -139,5 +275,5 @@ def save_sub():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host='0.0.0.0', port=80, debug=True)
-    #app.run()
+    #app.run(host='0.0.0.0', port=80, debug=True)
+    app.run()
