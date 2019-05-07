@@ -122,7 +122,6 @@ def fetch_attendance(usn, sub):
         _key = _data.key()
         _val = _data.val()
 
-
         for _k, _v in _val.iteritems():
             if _k == usn:
                 for _k, _v in _v.iteritems():
@@ -183,18 +182,43 @@ def home():
 @app.route('/sheet')
 def export():
 
-    workbook = xlsxwriter.Workbook('name.xlsx')
+    workbook = xlsxwriter.Workbook('data.xlsx')
 
     worksheet = workbook.add_worksheet()
-    worksheet.write('A1', 'Sl. No.')
+    '''worksheet.write('A1', 'Sl. No.')
     worksheet.write('B1', 'USN')
     worksheet.write('C1', 'Sub1')
-    worksheet.write('D1', 'Sub2')
+    worksheet.write('D1', 'Sub2')'''
+
+    row = 0
+    col = 2
+
+    worksheet.write(row, 0, 'Sl. No.')
+    worksheet.write(row, 1, 'USN')
+
+
+
+    for i in range(len(subjects)):
+        sub = subjects[i]
+        for k, v in sub.iteritems():
+            if k == 'name':
+                worksheet.write(row, col, v)
+                col += 1
+
+    for i in range(len(usns)):
+        usn = usns[i]
+        worksheet.write(row+1, 0, i+1)
+        worksheet.write(row+1, 1, usn)
+        row += 1
+
+
+
+
 
     workbook.close()
 
 
-    return send_file('name.xlsx')
+    return send_file('data.xlsx', attachment_filename='data.xlsx')
 
 @app.route('/att')
 def get_att():
@@ -244,7 +268,9 @@ def save_sub():
     date = str(now.day) + '-' + str(now.month) + '-' + str(now.year) + ':' + str(now.hour)
     usn_details = {
             subject: {
-                date: present,
+                date: {
+                    "present": present
+                },
                 "marks": marks
             }
     }
@@ -276,5 +302,5 @@ def save_sub():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host='0.0.0.0', port=80, debug=True)
-    #app.run()
+    #app.run(host='0.0.0.0', port=80, debug=True)
+    app.run()

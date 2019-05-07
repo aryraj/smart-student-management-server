@@ -101,8 +101,10 @@
             <option value="70">1DS15EE70</option>
           </select>
         </div>
+        <div class="button-div">
         <button type="submit" id="sub1"onclick="showSubjects()">See Attendance</button>
-        
+        <button id="export-excel" onclick="exportToExcel()">Export All Data to Excel</button>
+      </div>
         <div id="data">
           <p id="na" onclick="subClick(this.id)">Network Analysis</p>
           <p id ="ld" onclick="subClick(this.id)">Logic Design</p>
@@ -132,16 +134,14 @@
 
       <div id="chart" class="chart-container" style="position:absolute; height:13vh; width:21vw; padding-left: 150px; padding-top: 50px; margin-left:780px; margin-top:0px; margin-bottom:10px;">
       <canvas id="myChart" width="100" height="100"></canvas>
-      <div id="export-excel-div" class="export-excel">
-        <button id="export-excel" onclick="exportToExcel()">Export to Excel</button>
-      </div>
+  
       <!--<div id="graph">-->
       <script>
 
           let chart = document.getElementById("myChart");
           chart.style.display = "none";
 
-          let exportExcel = document.getElementById("export-excel-div");
+          let exportExcel = document.getElementById("export-excel");
           exportExcel.style.display = "none";
 
           function subClick(id) {
